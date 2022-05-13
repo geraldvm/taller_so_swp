@@ -1,22 +1,22 @@
 from ImageEditor import *
 from threading import Thread
 import threading
-
+import time
 #10500
 
 
 def fill():
     imgList=[]
-    for i in range(10500):
+    for i in range(35):
         imgList.append(ImageEditor("image.jpg"))
         edit(imgList[i],i)
     return imgList
 
 def main():
     imgList=fill()
-    print(len(imgList))
     i=0
-    while(i<10500):
+    start = time.time()
+    while(i<30):
         t0=Thread(target=edit, args=(imgList[i],i,))
         t1=Thread(target=edit, args=(imgList[i+1],i+1,))
         t2=Thread(target=edit, args=(imgList[i+2],i+2,))
@@ -39,7 +39,9 @@ def main():
         t9.start()
         i+=10
         
-    print("Finish")
+    elapsed = time.time()-start
+    print("Finish!\n")
+    print("Elapsed time: "+str(elapsed)+" seconds.\n")
 
 def edit(editor,i):
     editor.imageToGray("out"+str(i))
