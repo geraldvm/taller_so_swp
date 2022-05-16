@@ -7,7 +7,9 @@ class ImageEditor:
 
     def imageToGray(self,filename):
         self.__image=self.__image.convert('L')
+        #self.__image.close()
         self.save(filename)
+        self.__image.close()
         
     def save(self,filename):
         self.__image.save("output/"+filename+".jpg")

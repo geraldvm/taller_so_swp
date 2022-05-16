@@ -7,16 +7,19 @@ import time
 
 def fill():
     imgList=[]
-    for i in range(10500):
+    for i in range(10100):
         imgList.append(ImageEditor("image.jpg"))
-        edit(imgList[i],i)
+        #edit(imgList[i],i)
     return imgList
 
 def main():
     imgList=fill()
     i=0
     start = time.time()
-    while(i<10500):
+    while(i<10100):
+        
+        
+        
         t0=Thread(target=edit, args=(imgList[i],i,))
         t1=Thread(target=edit, args=(imgList[i+1],i+1,))
         t2=Thread(target=edit, args=(imgList[i+2],i+2,))
@@ -27,6 +30,7 @@ def main():
         t7=Thread(target=edit, args=(imgList[i+7],i+7,))
         t8=Thread(target=edit, args=(imgList[i+8],i+8,))
         t9=Thread(target=edit, args=(imgList[i+9],i+9,))
+
         t0.start()
         t1.start()
         t2.start()
@@ -38,6 +42,9 @@ def main():
         t8.start()
         t9.start()
         i+=10
+        #if(i>20):
+         #   return
+        
         
     elapsed = time.time()-start
     print("Finish!\n")
@@ -46,6 +53,6 @@ def main():
 def edit(editor,i):
     editor.imageToGray("out"+str(i))
 
-
+print("Start!\n")
 
 main()
