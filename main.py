@@ -18,7 +18,7 @@ def main():
     print("MAIN")
     i=0
     start = time.time()
-    while(i<10100):
+    while(i<30):
         
         
         
