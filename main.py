@@ -9,7 +9,6 @@ def fill():
     imgList=[]
     for i in range(10100):
         imgList.append(ImageEditor("image.jpg"))
-        #edit(imgList[i],i)
     return imgList
 
 def main():
@@ -44,8 +43,6 @@ def main():
         t8.start()
         t9.start()
         i+=10
-        #if(i>20):
-         #   return
         
         
     elapsed = time.time()-start
@@ -53,10 +50,7 @@ def main():
     print("Elapsed time: "+str(elapsed)+" seconds.\n")
 
 def edit(editor,i):
-    print(i)
-    #editor= ImageEditor(image)
     editor.imageToGray("out"+str(i))
-    #editor.imageToGray("out"+str(i))
 
 print("Start!\n")
 
