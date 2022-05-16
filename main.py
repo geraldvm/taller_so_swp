@@ -13,10 +13,12 @@ def fill():
     return imgList
 
 def main():
+    
     imgList=fill()
+    print("MAIN")
     i=0
     start = time.time()
-    while(i<30):
+    while(i<10100):
         
         
         
@@ -51,7 +53,10 @@ def main():
     print("Elapsed time: "+str(elapsed)+" seconds.\n")
 
 def edit(editor,i):
+    print(i)
+    #editor= ImageEditor(image)
     editor.imageToGray("out"+str(i))
+    #editor.imageToGray("out"+str(i))
 
 print("Start!\n")
 
